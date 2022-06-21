@@ -1,0 +1,136 @@
+<body class="container pt-5 pb-5 mt-5">
+<main class="form-signin bg-light p-5 m-auto rounded-3 shadow-5-strong">
+  <form (ngSubmit)="onSubmit()" [formGroup]="registrationForm">
+    <!--<div class="form-floating mb-3">
+      <img class="img-fluid" src="assets/logo.png" alt="" height="100">
+    </div>-->
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <label for="firstname" class="form-label ">Firstname</label>
+          <input type="text" class="form-control" id="firstname" name="firstname" formControlName="firstname"
+                 [(ngModel)]="user.firstName">
+          <div *ngIf="submitted && form.firstname.errors" class="text-danger">
+            <div *ngIf="form.firstname.errors.required">Firstname is required</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="idNumber" class="form-label ">ID-number</label>
+          <input type="text" class="form-control" id="idNumber" name="idNumber" formControlName="idNumber"
+                 [(ngModel)]="user.idNumber">
+          <div *ngIf="submitted && form.idNumber.errors" class="text-danger">
+            <div *ngIf="form.idNumber.errors.required">ID-number is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label for="lastname" class="form-label ">Lastname</label>
+          <input type="text" class="form-control" id="lastname" name="lastname"
+                 formControlName="lastname" [(ngModel)]="user.lastName">
+          <div *ngIf="submitted && form.lastname.errors" class="text-danger">
+            <div *ngIf="form.lastname.errors.required">Lastname is required</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="dateOfBirth" class="form-label ">Date of birth</label>
+          <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth"
+                 formControlName="dateOfBirth" [(ngModel)]="user.dob">
+          <div *ngIf="submitted && form.dateOfBirth.errors" class="text-danger">
+            <div *ngIf="form.dateOfBirth.errors.required">Date of birth is required</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label ">E-mail</label>
+      <input type="email" class="form-control" id="email" name="email" formControlName="email"
+             [(ngModel)]="user.email">
+      <div *ngIf="submitted && form.email.errors" class="text-danger">
+        <div *ngIf="form.email.errors.required">E-mail is required</div>
+        <div *ngIf="form.email.errors.email">E-mail not valid</div>
+
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="userName" class="form-label ">Username</label>
+      <input type="text" class="form-control" id="userName" name="userName"
+             formControlName="userName" [(ngModel)]="user.username">
+      <div *ngIf="submitted && form.userName.errors" class="text-danger">
+        <div *ngIf="form.userName.errors.required">Username is required</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" name="password"
+             formControlName="password" [(ngModel)]="user.password">
+      <div *ngIf="submitted && form.password.errors" class="text-danger">
+        <div *ngIf="form.password.errors.required">Password is required</div>
+        <div *ngIf="form.password.errors.minlength">Password must be at least 8 characters</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="confirmPassword" class="form-label">Confirm password</label>
+      <input type="password" class="form-control" id="confirmPassword" name="" formControlName="confirmPassword">
+      <div *ngIf="submitted && form.confirmPassword.errors" class="text-danger">
+        <div *ngIf="form.confirmPassword.errors.required">Confirm password is required</div>
+        <div *ngIf="form.confirmPassword.errors.mustMatch">Confirm password did not match</div>
+      </div>
+    </div>
+    <div class="mb-3">
+
+      <label for="roleSelect" class="form-label">Select your role</label>
+
+      <div class="row">
+        <div class="col-12">
+          <select class="form-select" id="roleSelect" name="roleSelect"
+                  formControlName="roleSelect" [(ngModel)]="user.roleId">
+            <option *ngIf="allRoles == null || allRoles.length == 0">No roles available</option>
+            <option></option>
+            <option *ngFor="let role of allRoles"
+                    value="{{role?.id}}">{{role?.type}}</option>
+          </select>
+          <div *ngIf="submitted && form.roleSelect.errors" class="text-danger">
+            <div *ngIf="form.roleSelect.errors.required">Role is required</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button class="w-100 btn btn-md btn-primary" id="submit-button" type="submit">Submit</button>
+      </div>
+      <!--<div class="col">
+        <button routerLink="/login" class="w-100 btn btn-md btn-primary ">Back to login</button>
+      </div>-->
+    </div>
+  </form>
+</main>
+</body>
+
+<!-- user already exists Modal-->
+<div class="modal fade" id="userAlreadyExistsModal" tabindex="-1" role="dialog"
+     aria-labelledby="viewSubscriptionItemModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="userAlreadyExistsModalLabel">My excuses</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container" id="main-container">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-xl-12">
+              <div class="alert alert-info" role="alert">
+                <h4 class="alert-heading">Sorry this username has already been taken</h4>
+                <p>Please try again</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
