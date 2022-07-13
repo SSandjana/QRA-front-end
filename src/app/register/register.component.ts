@@ -68,15 +68,15 @@ export class RegisterComponent implements OnInit {
     if (this.registrationForm.invalid) {
       return;
     } else {
-      this.chekIfUserExist();
+      this.checkIfUserExists();
       this.registerUser();
     }
   }
 
-  public chekIfUserExist() {
+  public checkIfUserExists() {
     this.registerService.getUserByUserName(this.user.username).subscribe(
       (response: User) => {
-        if (response.username === this.user.username) {
+        if (response && response.username && response.username === this.user.username) {
 
           Swal.fire({
             title: 'Please try again',
