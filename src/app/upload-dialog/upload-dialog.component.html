@@ -1,0 +1,15 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header modal-header-info">
+      <h4 class="modal-title">Bestanden uploaden</h4>
+    </div>
+    <div class="modal-body">
+      <app-upload [userId]="userId" [preSelect]="docType"
+                         (uploadEnded)="uploadEnded($event)"></app-upload>
+    </div>
+    <div class="modal-footer qsr-modal-footer">
+      <button type="button" #button name="saveButton" class="btn btn-sm btn-success btn-quirk" (click)="close()">Sluiten
+      </button>
+    </div>
+  </div>
+</div>

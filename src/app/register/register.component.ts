@@ -19,6 +19,9 @@ export class RegisterComponent implements OnInit {
   public registrationForm: FormGroup;
   public submitted: boolean = false;
   public check: boolean;
+  public registrationSuccessful: boolean = false;
+  public registeredUser: User = new User();
+  public toUploadDocuments = ['ID kaart','Rijbewijs'];
 
   constructor(private roleService: RoleService,
               private formBuilder: FormBuilder,
@@ -69,7 +72,6 @@ export class RegisterComponent implements OnInit {
       return;
     } else {
       this.checkIfUserExists();
-      this.registerUser();
     }
   }
 
@@ -100,6 +102,7 @@ export class RegisterComponent implements OnInit {
       (response: User) => {
         if (response != null) {
 
+          this.registeredUser = response;
           Swal.fire({
             title: 'User ' + response.username + ' created',
             text: '',
@@ -110,6 +113,7 @@ export class RegisterComponent implements OnInit {
             buttonsStyling: false
           }).then((result) => {
             if (result.isConfirmed) {
+              this.registrationSuccessful = true;
               //  this.router.navigate(['/login'])
             }
           })

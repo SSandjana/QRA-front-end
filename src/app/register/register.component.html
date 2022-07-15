@@ -1,6 +1,6 @@
 <body class="container pt-5 pb-5 mt-5">
 <main class="form-signin bg-light p-5 m-auto rounded-3 shadow-5-strong">
-  <form (ngSubmit)="onSubmit()" [formGroup]="registrationForm">
+  <form *ngIf="!registrationSuccessful" (ngSubmit)="onSubmit()" [formGroup]="registrationForm">
     <!--<div class="form-floating mb-3">
       <img class="img-fluid" src="assets/logo.png" alt="" height="100">
     </div>-->
@@ -105,6 +105,10 @@
       </div>-->
     </div>
   </form>
+
+  <div *ngIf="registrationSuccessful">
+    <app-upload-documents [userData]="registeredUser" [toUploadDocuments]="toUploadDocuments"></app-upload-documents>
+  </div>
 </main>
 </body>
 

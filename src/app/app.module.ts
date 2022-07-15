@@ -16,6 +16,13 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
 import {AppRoutingModule} from "./app-routing.module";
+import {UploadDocumentsComponent} from './upload-documents/upload-documents.component';
+import {UploadDialogComponent} from './upload-dialog/upload-dialog.component';
+import {UploadComponent} from './upload/upload.component';
+import {AngularMyDatePickerModule} from "angular-mydatepicker";
+import {FileUploadModule} from "primeng/fileupload";
+import {TooltipModule} from "primeng/tooltip";
+import {SimpleModalModule, SimpleModalService} from "ngx-simple-modal";
 
 @NgModule({
   declarations: [
@@ -26,7 +33,10 @@ import {AppRoutingModule} from "./app-routing.module";
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UploadDocumentsComponent,
+    UploadDialogComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
@@ -37,9 +47,13 @@ import {AppRoutingModule} from "./app-routing.module";
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    NgxPaginationModule
+    NgxPaginationModule,
+    AngularMyDatePickerModule,
+    FileUploadModule,
+    TooltipModule,
+    SimpleModalModule
   ],
-  providers: [],
+  providers: [SimpleModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

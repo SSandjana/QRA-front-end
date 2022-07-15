@@ -1,0 +1,19 @@
+<div class="alert alert-warning mt20" data-cy="nog-te-uploaden-warning">
+  <span class="caps-label">Nog te uploaden documenten voor {{userData.username}} : </span>
+  <ol class="nomargin paddingtop10">
+    <li *ngFor="let d of toUploadDocuments">
+      <label pTooltip="Uploaden">
+        {{d}} </label>
+    </li>
+  </ol>
+</div>
+<div class="well well-asset-options clearfix">
+  <div class="btn-toolbar btn-toolbar-media-manager pull-left" role="toolbar">
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-danger" id="uploadbtn"
+              (click)="showUploadDialog()"><i
+        class="fa fa-upload"></i> Uploaden
+      </button>
+    </div>
+  </div>
+</div>
