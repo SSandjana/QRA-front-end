@@ -89,10 +89,6 @@ export class UploadComponent implements OnInit {
         err => this.errHandler.handle(err, true),
         () => this.isBusy = false);
 
-    /*{
-      value: waardeItem.hypotheekWaardetype,
-        disabled: (!!waardeItem.hypotheekWaardetype && waardeItem.hypotheekWaardetype.verplicht)
-    }*/
   }
 
   private createForm() {
