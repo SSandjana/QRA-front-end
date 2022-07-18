@@ -23,6 +23,7 @@ import {AngularMyDatePickerModule} from "angular-mydatepicker";
 import {FileUploadModule} from "primeng/fileupload";
 import {TooltipModule} from "primeng/tooltip";
 import {SimpleModalModule, SimpleModalService} from "ngx-simple-modal";
+import {TableModule} from "ngx-easy-table";
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {SimpleModalModule, SimpleModalService} from "ngx-simple-modal";
     AngularMyDatePickerModule,
     FileUploadModule,
     TooltipModule,
-    SimpleModalModule
+    SimpleModalModule,
+    TableModule
   ],
   providers: [SimpleModalService],
   bootstrap: [AppComponent]
