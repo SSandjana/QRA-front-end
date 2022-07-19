@@ -47,4 +47,8 @@ export class AuthService {
     return !!sessionStorage.getItem('user');
   }
 
+  getUser(): any {
+    return JSON.parse(sessionStorage.getItem('user'));
+  }
+
 }
