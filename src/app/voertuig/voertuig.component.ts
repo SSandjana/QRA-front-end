@@ -35,4 +35,8 @@ export class VoertuigComponent implements OnInit {
         .subscribe(voertuigen => this.voertuigen = voertuigen)
     }
   }
+
+  voertuigToevoegen() {
+
+  }
 }

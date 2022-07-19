@@ -1,16 +1,23 @@
 <div class="container pt-5 pb-5 mt-5">
 
-  <div class="input-group">
-    <div class="form-outline">
-      <input [(ngModel)]="kentekenNummer" (ngModelChange)="getVoertuigenByKentekenNummer()"
-             placeholder="Kentekennummer" id="kentekenNummer" type="text" class="form-control"
-             placeholder="kentekenNummer"
-             aria-label="kentekenNummer" aria-describedby="basic-addon1">
-      <label class="form-label" for="kentekenNummer">Search</label>
+  <div class="row">
+    <div class="input-group col-1">
+      <div class="form-outline">
+        <input [(ngModel)]="kentekenNummer" (ngModelChange)="getVoertuigenByKentekenNummer()"
+               placeholder="Kentekennummer" id="kentekenNummer" type="text" class="form-control"
+               placeholder="kentekenNummer"
+               aria-label="kentekenNummer" aria-describedby="basic-addon1">
+        <label class="form-label" for="kentekenNummer">Search</label>
+      </div>
+      <button (click)="getVoertuigenByKentekenNummer()" class="btn btn-primary">
+        <i class="fa fa-search"></i>
+      </button>
     </div>
-    <button type="button" (click)="getVoertuigenByKentekenNummer()" class="btn btn-primary">
-      <i class="fa fa-search"></i>
-    </button>
+    <div>
+      <button (click)="voertuigToevoegen()" class="btn btn-primary float-end text-white" >
+        <span>Toevoegen </span> <i class="fa fa-plus-circle"></i>
+      </button>
+    </div>
   </div>
 
   <div class="table-responsive" id="subscription-container">
