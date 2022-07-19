@@ -24,6 +24,7 @@ import {FileUploadModule} from "primeng/fileupload";
 import {TooltipModule} from "primeng/tooltip";
 import {SimpleModalModule, SimpleModalService} from "ngx-simple-modal";
 import {TableModule} from "ngx-easy-table";
+import { VoertuigComponent } from './voertuig/voertuig.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {TableModule} from "ngx-easy-table";
     UserProfileComponent,
     UploadDocumentsComponent,
     UploadDialogComponent,
-    UploadComponent
+    UploadComponent,
+    VoertuigComponent
   ],
   imports: [
     BrowserModule,

@@ -34,4 +34,8 @@ export class HeaderComponent implements OnInit {
   navigateToRegistrationForm() {
     this.router.navigate(['register'])
   }
+
+  navigateToVoertuigForm() {
+    this.router.navigate(['voertuig'])
+  }
 }

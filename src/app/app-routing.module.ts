@@ -8,6 +8,8 @@ import {HomeComponent} from "./home/home.component";
 import {RegisterComponent} from "./register/register.component";
 import {AdminGuard} from "./guards/admin.guard";
 import {UserProfileComponent} from "./user-profile/user-profile.component";
+import {VoertuigComponent} from "./voertuig/voertuig.component";
+import {ClientGuard} from "./guards/client.guard";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -25,6 +27,10 @@ const routes: Routes = [
         path: 'user-profile',
         component: UserProfileComponent,
         canActivate: [AuthGuard]
+      }, {
+        path: 'voertuig',
+        component: VoertuigComponent,
+        canActivate: [AuthGuard, ClientGuard]
       },
     ]
   },

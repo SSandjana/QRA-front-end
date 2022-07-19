@@ -12,6 +12,11 @@
                [ngClass]="{'active':getUrl()==='/register'}" *ngIf="authService.isAdmin()">
               Registration</a>
           </li>
+          <li class="nav-item">
+            <a class="btn btn-primary nav-link" (click)="navigateToVoertuigForm()"
+               [ngClass]="{'active':getUrl()==='/voertuig'}" *ngIf="authService.isClient()">
+              Voertuig</a>
+          </li>
           <!--          <li class="nav-item">
                       <a class="btn btn-primary nav-link" (click)="navigateTo.......()"
                          [ngClass]="{'active':getUrl()==='/aaa-bbbb-cccc'}" *ngIf="!authService.isAdmin()">
