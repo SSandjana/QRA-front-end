@@ -5,7 +5,6 @@
       <div class="form-outline">
         <input [(ngModel)]="kentekenNummer" (ngModelChange)="getVoertuigenByKentekenNummer()"
                placeholder="Kentekennummer" id="kentekenNummer" type="text" class="form-control"
-               placeholder="kentekenNummer"
                aria-label="kentekenNummer" aria-describedby="basic-addon1">
         <label class="form-label" for="kentekenNummer">Search</label>
       </div>
@@ -14,7 +13,7 @@
       </button>
     </div>
     <div>
-      <button (click)="voertuigToevoegen()" class="btn btn-primary float-end text-white" >
+      <button (click)="voertuigToevoegen()" class="btn btn-primary float-end text-white">
         <span>Toevoegen </span> <i class="fa fa-plus-circle"></i>
       </button>
     </div>
