@@ -4,6 +4,7 @@ export class User {
   idNumber: string;
   dob: Date;
   email: string;
+  telephone: string;
   username: string;
   password: string;
   roleId: number;

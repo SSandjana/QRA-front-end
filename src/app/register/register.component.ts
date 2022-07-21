@@ -7,6 +7,8 @@ import {HttpErrorResponse} from "@angular/common/http";
 import {Role} from "../interfaces/role";
 import {RoleService} from "../services/role.service";
 import {User} from "../classes/user";
+import {Gender} from "../classes/Gender";
+import { SearchCountryField, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-input';
 
 @Component({
   selector: 'app-register',
@@ -23,6 +25,18 @@ export class RegisterComponent implements OnInit {
   public registeredUser: User = new User();
   public toUploadDocuments = ['ID kaart','Rijbewijs'];
 
+  public separateDialCode = true;
+  public SearchCountryField = SearchCountryField;
+  public CountryISO = CountryISO;
+  public PhoneNumberFormat = PhoneNumberFormat;
+  public preferredCountries: CountryISO[] = [CountryISO.Suriname, CountryISO.Netherlands];
+
+  genders: Gender[] = [
+    {value: 'M', viewValue: 'Male'},
+    {value: 'F', viewValue: 'Female'},
+    {value: 'O', viewValue: 'Other'},
+  ];
+
   constructor(private roleService: RoleService,
               private formBuilder: FormBuilder,
               private registerService: RegisterService,
@@ -33,6 +47,8 @@ export class RegisterComponent implements OnInit {
       firstname: new FormControl(null, [Validators.required]),
       idNumber: new FormControl(null, [Validators.required]),
       lastname: new FormControl(null, [Validators.required]),
+      telephone: new FormControl(null, [Validators.required]),
+      gender: new FormControl(null, Validators.required),
       dateOfBirth: new FormControl(null, [Validators.required]),
       email: new FormControl(null, [Validators.required, Validators.email]),
       userName: new FormControl(null, [Validators.required]),

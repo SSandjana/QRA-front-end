@@ -25,6 +25,7 @@ import {TooltipModule} from "primeng/tooltip";
 import {SimpleModalModule, SimpleModalService} from "ngx-simple-modal";
 import {TableModule} from "ngx-easy-table";
 import { VoertuigComponent } from './voertuig/voertuig.component';
+import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { VoertuigComponent } from './voertuig/voertuig.component';
     FileUploadModule,
     TooltipModule,
     SimpleModalModule,
-    TableModule
+    TableModule,
+    NgxIntlTelInputModule
   ],
   providers: [SimpleModalService],
   bootstrap: [AppComponent]
