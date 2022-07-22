@@ -1,0 +1,96 @@
+<body class="container pt-5 pb-5 mt-5">
+<main class="form-signin bg-light p-5 m-auto rounded-3 shadow-5-strong">
+  <form (ngSubmit)="onSubmit()" *ngIf="!vehicleAdditionSuccessful" [formGroup]="addVoertuigForm">
+    <!--<div class="form-floating mb-3">
+      <img class="img-fluid" src="assets/logo.png" alt="" height="100">
+    </div>-->
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <label class="form-label " for="merk">Merk</label>
+          <input [(ngModel)]="voertuig.merk" class="form-control" formControlName="merk" id="merk" name="merk"
+                 type="text">
+          <div *ngIf="submitted && form.merk.errors" class="text-danger">
+            <div *ngIf="form.merk.errors.required">Merk is required</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label " for="kentekenNummer">Kenteken nummer</label>
+          <input [(ngModel)]="voertuig.kentekenNummer" class="form-control" formControlName="kentekenNummer"
+                 id="kentekenNummer"
+                 name="kentekenNummer"
+                 type="text">
+          <div *ngIf="submitted && form.kentekenNummer.errors" class="text-danger">
+            <div *ngIf="form.kentekenNummer.errors.required">Kenteken nummer is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label class="form-label " for="bouwJaar">Bouwjaar</label>
+          <input [(ngModel)]="voertuig.bouwJaar" class="form-control" formControlName="bouwJaar" id="bouwJaar"
+                 name="bouwJaar" type="number">
+          <div *ngIf="submitted && form.bouwJaar.errors" class="text-danger">
+            <div *ngIf="form.bouwJaar.errors.required">Bouwjaar is required</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label " for="voertuigType">Voertuig type</label>
+          <select [(ngModel)]="voertuig.voertuigType" class="form-select" formControlName="voertuigType"
+                  id="voertuigType" name="voertuigType">
+            <option *ngIf="allVoertuigType == null || allVoertuigType.length == 0">No voertuig type available</option>
+            <option></option>
+            <option *ngFor="let voertuigType of allVoertuigType" type="number"
+                    value="{{voertuigType?.id}}">{{voertuigType?.type}}</option>
+          </select>
+          <div *ngIf="submitted && form.voertuigType.errors" class="text-danger">
+            <div *ngIf="form.voertuigType.errors.required">Voertuig type is required</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button class="w-100 btn btn-md btn-primary" id="submit-button" type="submit">
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <div *ngIf="vehicleAdditionSuccessful">
+    <app-upload-documents-voertuig [registeredVehicle]="registeredVehicle"
+                          [backButtonUrl]="'voertuig'"
+                          [toUploadDocuments]="toUploadDocuments"
+    ></app-upload-documents-voertuig>
+  </div>
+</main>
+</body>
+
+<!-- user already exists Modal-->
+<div aria-hidden="true" aria-labelledby="viewSubscriptionItemModalLabel" class="modal fade" id="userAlreadyExistsModal"
+     role="dialog" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="userAlreadyExistsModalLabel">My excuses</h5>
+        <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container" id="main-container">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-xl-12">
+              <div class="alert alert-info" role="alert">
+                <h4 class="alert-heading">Sorry this username has already been taken</h4>
+                <p>Please try again</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

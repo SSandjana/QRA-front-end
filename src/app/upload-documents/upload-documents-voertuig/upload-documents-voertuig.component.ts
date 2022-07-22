@@ -1,18 +1,19 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SimpleModalService} from "ngx-simple-modal";
-import {UploadDialogComponent} from "../upload-dialog/upload-dialog.component";
 import {Router} from "@angular/router";
-
+import {
+  UploadDialogVoertuigComponent
+} from "../../upload-dialog/upload-dialog-voertuig/upload-dialog-voertuig.component";
 
 @Component({
-  selector: 'app-upload-documents',
-  templateUrl: './upload-documents.component.html',
-  styleUrls: ['./upload-documents.component.css']
+  selector: 'app-upload-documents-voertuig',
+  templateUrl: './upload-documents-voertuig.component.html',
+  styleUrls: ['./upload-documents-voertuig.component.css']
 })
-export class UploadDocumentsComponent implements OnInit {
+export class UploadDocumentsVoertuigComponent implements OnInit {
 
   @Input()
-  public userData: any;
+  public registeredVehicle: any;
   @Input()
   public toUploadDocuments: any[];
   @Input()
@@ -25,9 +26,10 @@ export class UploadDocumentsComponent implements OnInit {
   }
 
   showUploadDialog() {
-    console.log(this.userData);
-    const d = this.dialogService.addModal(UploadDialogComponent, {
-      userId: this.userData.id,
+    console.log(this.registeredVehicle);
+    const d = this.dialogService.addModal(UploadDialogVoertuigComponent, {
+      userId: this.registeredVehicle.user.id,
+      voertuigId: this.registeredVehicle.id,
       closeAfterUpload: true,
     })
       .subscribe((result) => {
@@ -40,4 +42,5 @@ export class UploadDocumentsComponent implements OnInit {
       this.router.navigate([backButtonUrl]);
     });
   }
+
 }
