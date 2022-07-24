@@ -1,23 +1,25 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {ConfigUploadDocument} from "../interfaces/config-upload-document";
+import {ConfigUploadDocument} from "../../interfaces/config-upload-document";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {IMyDate, IMyDateModel, IMyOptions} from "angular-mydatepicker";
-import {HttpEventType} from "@angular/common/http";
 import {ActivatedRoute, Router} from "@angular/router";
-import {HttpErrHandlerService} from "../services/http-err-handler.service";
-import {NotificationService} from "../services/notification.service";
-import {UploadService} from "../services/upload.service";
-import {FileService} from "../services/file.service";
-import {AppConfigService} from "../services/app-config.service";
-import * as moment from 'moment';
+import {HttpErrHandlerService} from "../../services/http-err-handler.service";
+import {NotificationService} from "../../services/notification.service";
+import {UploadService} from "../../services/upload.service";
+import {FileService} from "../../services/file.service";
+import {AppConfigService} from "../../services/app-config.service";
+import {HttpEventType} from "@angular/common/http";
+import * as moment from "moment";
 
 @Component({
-  selector: 'app-upload',
-  templateUrl: './upload.component.html',
-  styleUrls: ['./upload.component.css']
+  selector: 'app-upload-voertuig',
+  templateUrl: './upload-voertuig.component.html',
+  styleUrls: ['./upload-voertuig.component.css']
 })
-export class UploadComponent implements OnInit {
+export class UploadVoertuigComponent implements OnInit {
+
   @Input() userId: number;
+  @Input() voertuigId: number;
   @Input() preSelect: ConfigUploadDocument;
 
   @Output() uploadEnded = new EventEmitter<boolean>();
@@ -121,7 +123,7 @@ export class UploadComponent implements OnInit {
     let successCount = 0;
 
     $event.files.forEach(f => {
-      this.fileService.upload(f, uform.getRawValue(), this.userId, null).subscribe(e => {
+      this.fileService.upload(f, uform.getRawValue(), this.userId, this.voertuigId).subscribe(e => {
         // console.log('upload result');
         // console.log(e);
         switch (e.type) {

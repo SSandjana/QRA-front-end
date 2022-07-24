@@ -163,7 +163,7 @@
   </form>
 
   <div *ngIf="registrationSuccessful">
-    <app-upload-documents [userData]="registeredUser" [toUploadDocuments]="toUploadDocuments"></app-upload-documents>
+    <app-upload-documents [userData]="registeredUser" [backButtonUrl]="'register'"  [toUploadDocuments]="toUploadDocuments"></app-upload-documents>
   </div>
 </main>
 </body>

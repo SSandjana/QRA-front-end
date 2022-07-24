@@ -12,6 +12,7 @@ export class VoertuigComponent implements OnInit {
   public voertuigen: any[];
   p: number = 1;
   user: any;
+  displayVehicles = true;
 
   constructor(private voertuigService: VoertuigService,
               private authService: AuthService) {
@@ -37,6 +38,7 @@ export class VoertuigComponent implements OnInit {
   }
 
   voertuigToevoegen() {
+    this.displayVehicles = false;
 
   }
 }

@@ -25,6 +25,10 @@ import {TooltipModule} from "primeng/tooltip";
 import {SimpleModalModule, SimpleModalService} from "ngx-simple-modal";
 import {TableModule} from "ngx-easy-table";
 import { VoertuigComponent } from './voertuig/voertuig.component';
+import { AddVoertuigComponent } from './add-voertuig/add-voertuig.component';
+import { UploadDocumentsVoertuigComponent } from './upload-documents/upload-documents-voertuig/upload-documents-voertuig.component';
+import { UploadDialogVoertuigComponent } from './upload-dialog/upload-dialog-voertuig/upload-dialog-voertuig.component';
+import { UploadVoertuigComponent } from './upload/upload-voertuig/upload-voertuig.component';
 import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
 
 @NgModule({
@@ -40,7 +44,11 @@ import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
     UploadDocumentsComponent,
     UploadDialogComponent,
     UploadComponent,
-    VoertuigComponent
+    VoertuigComponent,
+    AddVoertuigComponent,
+    UploadDocumentsVoertuigComponent,
+    UploadDialogVoertuigComponent,
+    UploadVoertuigComponent
   ],
   imports: [
     BrowserModule,

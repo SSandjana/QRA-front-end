@@ -11,7 +11,7 @@ export class FileService {
   constructor(private api: ApiHttpService) {
   }
 
-  upload(file: File, value: any, userId: number): Observable<HttpEvent<any>> {
+  upload(file: File, value: any, userId: number, voertuigId: number): Observable<HttpEvent<any>> {
     const fdata = new FormData();
     fdata.append('file', file, file.name);
     fdata.append('omschrijving', value.omschrijving);
@@ -20,7 +20,9 @@ export class FileService {
     }
     fdata.append('documentType', value.filetype);
     fdata.append('userId', userId + '');
-
+    if (voertuigId) {
+      fdata.append('voertuigId', voertuigId + '');
+    }
     return this.api.postWithProgress<any>('/documents/upload', fdata);
   }
 
