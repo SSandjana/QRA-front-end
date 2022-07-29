@@ -12,3 +12,11 @@
   background-color: #025aa5;
   border-color: #01549b;
 }
+
+#backdrop{
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  background: #000000;
+  opacity: 0.5;
+}

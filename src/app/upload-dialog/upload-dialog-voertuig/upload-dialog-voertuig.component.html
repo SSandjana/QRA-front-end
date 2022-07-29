@@ -1,15 +1,19 @@
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header modal-header-info">
-      <h4 class="modal-title">Bestanden uploaden</h4>
-    </div>
-    <div class="modal-body">
-      <app-upload-voertuig (uploadEnded)="uploadEnded($event)" [preSelect]="docType" [userId]="userId"
-                           [voertuigId]="voertuigId"></app-upload-voertuig>
-    </div>
-    <div class="modal-footer qsr-modal-footer">
-      <button #button (click)="close()" class="btn btn-sm btn-success btn-quirk" name="saveButton" type="button">Sluiten
-      </button>
+<div id="backdrop"></div>
+  <div id="main" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal-header-info">
+        <h4 class="modal-title">Bestanden uploaden</h4>
+      </div>
+      <div class="modal-body">
+        <app-upload-voertuig (uploadEnded)="uploadEnded($event)" [preSelect]="docType" [userId]="userId"
+                             [voertuigId]="voertuigId"></app-upload-voertuig>
+      </div>
+      <div class="modal-footer qsr-modal-footer">
+        <button #button (click)="close()" class="btn btn-sm btn-success btn-quirk" name="saveButton" type="button">Sluiten
+        </button>
+      </div>
     </div>
   </div>
-</div>
+
+
+
