@@ -19,7 +19,7 @@ export class AanrijdingsformulierService {
 
   getFormByName(naam: any): Observable<any> {
     let params: HttpParams = new HttpParams();
-    params = params.set('naam', naam.toString());
+    params = params.set('naam', naam?.toString());
     return this.http.get<any>(`${this.apiServerUrl}/aanrijdingsformulier/find/by/naam`, {params});
   }
 
@@ -27,12 +27,8 @@ export class AanrijdingsformulierService {
     return this.http.post<any>(`${this.apiServerUrl}/aanrijdingsformulier/register`, formulier);
   }
 
-  public changeStatus(claim: string): Observable<any> {
-    return this.http.post(`${this.apiServerUrl}/aanrijdingsformulier/change_status`, claim, {responseType: 'text'});
-  }
-
   public update(claim: string, naam: string): Observable<any> {
-    return this.http.post(`${this.apiServerUrl}/aanrijdingsformulier/update`, [claim, naam] , {responseType: 'text'});
+    return this.http.post(`${this.apiServerUrl}/aanrijdingsformulier/update`, {claim, naam} , {responseType: 'text'});
   }
 
 }

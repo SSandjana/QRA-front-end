@@ -1,30 +1,30 @@
-<div style="margin-top: 100px; margin-bottom: 100px;"
-     *ngIf="getFormName() !== null">
+<div *ngIf="getFormName() !== null"
+     style="margin-top: 100px; margin-bottom: 100px;">
   <ngx-extended-pdf-viewer
-    [src]="getFormName()"
-    [height]="'511px'"
-    [useBrowserLocale]="true"
-    [textLayer]="true"
-    [showHandToolButton]="true"
-    [showPresentationModeButton]="true"
     [(page)]="page"
     [(pageLabel)]="pageLabel"
+    [height]="'511px'"
     [showDownloadButton]="false"
+    [showHandToolButton]="true"
+    [showPresentationModeButton]="true"
+    [src]="getFormName()"
+    [textLayer]="true"
+    [useBrowserLocale]="true"
   >
-<!--    assets/FR00f0001-2022-07-28.pdf-->
+    <!--    assets/FR00f0001-2022-07-28.pdf-->
   </ngx-extended-pdf-viewer>
 
-  <div class="me-auto mb-2 mb-lg-0 nav nav-pills"
+  <div *ngIf="updates.afgehandeld === 'pending'"  class="me-auto mb-2 mb-lg-0 nav nav-pills"
        style="position: relative; margin-left: 500px; margin-top: 7px;">
-    <button style="background: #0d6efd; color: #ffffff;"
-            class="btn btn-primary nav-link" (click)="update()">
+    <button (click)="accept()"
+            class="btn btn-primary nav-link" style="background: #0d6efd; color: #ffffff;">
       Accepteren
     </button>
-    <button style="background: #c0392b; color: #ffffff;"
-            class="btn btn-primary nav-link" (click)="update()">
+    <button (click)="deny()"
+            class="btn btn-primary nav-link" style="background: #c0392b; color: #ffffff;">
       Afkeuren
     </button>
-    <button class="btn btn-primary nav-link" (click)="navigateToHome()">
+    <button (click)="navigateToClaims()" class="btn btn-primary nav-link">
       Later bewerken
     </button>
   </div>
