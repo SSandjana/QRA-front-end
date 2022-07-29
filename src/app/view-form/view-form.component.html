@@ -1,6 +1,7 @@
-<div style="margin-top: 100px; margin-bottom: 100px;">
+<div style="margin-top: 100px; margin-bottom: 100px;"
+     *ngIf="getFormName() !== null">
   <ngx-extended-pdf-viewer
-    [src]="'assets/FR00f0001-2022-07-28.pdf'"
+    [src]="getFormName()"
     [height]="'511px'"
     [useBrowserLocale]="true"
     [textLayer]="true"
@@ -10,16 +11,17 @@
     [(pageLabel)]="pageLabel"
     [showDownloadButton]="false"
   >
+<!--    assets/FR00f0001-2022-07-28.pdf-->
   </ngx-extended-pdf-viewer>
 
   <div class="me-auto mb-2 mb-lg-0 nav nav-pills"
        style="position: relative; margin-left: 500px; margin-top: 7px;">
     <button style="background: #0d6efd; color: #ffffff;"
-            class="btn btn-primary nav-link" (click)="update('accepted')">
+            class="btn btn-primary nav-link" (click)="update()">
       Accepteren
     </button>
     <button style="background: #c0392b; color: #ffffff;"
-            class="btn btn-primary nav-link" (click)="update('denied')">
+            class="btn btn-primary nav-link" (click)="update()">
       Afkeuren
     </button>
     <button class="btn btn-primary nav-link" (click)="navigateToHome()">

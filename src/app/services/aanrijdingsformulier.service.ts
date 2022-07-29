@@ -27,8 +27,12 @@ export class AanrijdingsformulierService {
     return this.http.post<any>(`${this.apiServerUrl}/aanrijdingsformulier/register`, formulier);
   }
 
-  public changeStatus(claim: any): Observable<any> {
+  public changeStatus(claim: string): Observable<any> {
     return this.http.post(`${this.apiServerUrl}/aanrijdingsformulier/change_status`, claim, {responseType: 'text'});
+  }
+
+  public update(claim: string, naam: string): Observable<any> {
+    return this.http.post(`${this.apiServerUrl}/aanrijdingsformulier/update`, [claim, naam] , {responseType: 'text'});
   }
 
 }
