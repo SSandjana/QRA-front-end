@@ -55,8 +55,8 @@ export class AddVoertuigComponent implements OnInit {
       (voertuig: any) => {
         if (voertuig && voertuig.kentekenNummer && voertuig.merk && voertuig.voertuigType && voertuig.bouwJaar) {
           Swal.fire({
-            title: 'Please try again',
-            text: 'Sorry this vehicle has already been registered',
+            title: 'Probeer opnieuw',
+            text: 'Sorry dit voertuig is al geregistreerd',
             icon: 'error',
             customClass: {
               confirmButton: 'btn btn-primary'
@@ -77,7 +77,7 @@ export class AddVoertuigComponent implements OnInit {
             if (response != null) {
               this.registeredVehicle = response;
               Swal.fire({
-                title: 'Vehicle with kenteken nummer : ' + response.kentekenNummer + ' added',
+                title: 'Voertuig met kenteken nummer ' + response.kentekenNummer + ' toegevoegd',
                 text: '',
                 icon: 'success',
                 customClass: {

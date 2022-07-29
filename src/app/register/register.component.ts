@@ -32,9 +32,9 @@ export class RegisterComponent implements OnInit {
   public preferredCountries: CountryISO[] = [CountryISO.Suriname, CountryISO.Netherlands];
 
   genders: Gender[] = [
-    {value: 'M', viewValue: 'Male'},
-    {value: 'F', viewValue: 'Female'},
-    {value: 'O', viewValue: 'Other'},
+    {value: 'M', viewValue: 'Mannelijk'},
+    {value: 'F', viewValue: 'Vrouwelijk'},
+    {value: 'O', viewValue: 'Anders'},
   ];
 
   constructor(private roleService: RoleService,

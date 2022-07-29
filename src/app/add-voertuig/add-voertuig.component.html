@@ -11,7 +11,7 @@
           <input [(ngModel)]="voertuig.merk" class="form-control" formControlName="merk" id="merk" name="merk"
                  type="text">
           <div *ngIf="submitted && form.merk.errors" class="text-danger">
-            <div *ngIf="form.merk.errors.required">Merk is required</div>
+            <div *ngIf="form.merk.errors.required">Merk is verplicht</div>
           </div>
         </div>
         <div class="mb-3">
@@ -21,7 +21,7 @@
                  name="kentekenNummer"
                  type="text">
           <div *ngIf="submitted && form.kentekenNummer.errors" class="text-danger">
-            <div *ngIf="form.kentekenNummer.errors.required">Kenteken nummer is required</div>
+            <div *ngIf="form.kentekenNummer.errors.required">Kenteken nummer is verplicht</div>
           </div>
         </div>
       </div>
@@ -31,20 +31,20 @@
           <input [(ngModel)]="voertuig.bouwJaar" class="form-control" formControlName="bouwJaar" id="bouwJaar"
                  name="bouwJaar" type="number">
           <div *ngIf="submitted && form.bouwJaar.errors" class="text-danger">
-            <div *ngIf="form.bouwJaar.errors.required">Bouwjaar is required</div>
+            <div *ngIf="form.bouwJaar.errors.required">Bouwjaar is verplicht</div>
           </div>
         </div>
         <div class="mb-3">
           <label class="form-label " for="voertuigType">Voertuig type</label>
           <select [(ngModel)]="voertuig.voertuigType" class="form-select" formControlName="voertuigType"
                   id="voertuigType" name="voertuigType">
-            <option *ngIf="allVoertuigType == null || allVoertuigType.length == 0">No voertuig type available</option>
+            <option *ngIf="allVoertuigType == null || allVoertuigType.length == 0">Geen voertuig type beschikbaar</option>
             <option></option>
             <option *ngFor="let voertuigType of allVoertuigType" type="number"
                     value="{{voertuigType?.id}}">{{voertuigType?.type}}</option>
           </select>
           <div *ngIf="submitted && form.voertuigType.errors" class="text-danger">
-            <div *ngIf="form.voertuigType.errors.required">Voertuig type is required</div>
+            <div *ngIf="form.voertuigType.errors.required">Voertuig type is verplicht</div>
           </div>
         </div>
       </div>
@@ -52,7 +52,7 @@
     <div class="row">
       <div class="col">
         <button class="w-100 btn btn-md btn-primary" id="submit-button" type="submit">
-          Submit
+          Opslaan
         </button>
       </div>
     </div>

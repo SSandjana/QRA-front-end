@@ -7,23 +7,23 @@
     <div class="row">
       <div class="col">
         <div class="mb-3">
-          <label for="firstname" class="form-label ">Firstname</label>
+          <label for="firstname" class="form-label ">Voornaam</label>
           <input type="text" class="form-control" id="firstname" name="firstname" formControlName="firstname"
                  [(ngModel)]="user.firstName">
           <div *ngIf="submitted && form.firstname.errors" class="text-danger">
-            <div *ngIf="form.firstname.errors.required">Firstname is required</div>
+            <div *ngIf="form.firstname.errors.required">Voornaam is verplicht</div>
           </div>
         </div>
         <div class="mb-3">
-          <label for="idNumber" class="form-label ">ID-number</label>
+          <label for="idNumber" class="form-label ">ID-nummer</label>
           <input type="text" class="form-control" id="idNumber" name="idNumber" formControlName="idNumber"
                  [(ngModel)]="user.idNumber">
           <div *ngIf="submitted && form.idNumber.errors" class="text-danger">
-            <div *ngIf="form.idNumber.errors.required">ID-number is required</div>
+            <div *ngIf="form.idNumber.errors.required">ID-nummer is verplicht</div>
           </div>
         </div>
         <div class="mb-3">
-          <label for="telephone" class="form-label ">Phone</label>
+          <label for="telephone" class="form-label ">Telefoon</label>
             <div class="wrapper">
               <ngx-intl-tel-input
                 [cssClass]="'custom'"
@@ -49,17 +49,17 @@
               </ngx-intl-tel-input>
             </div>
           <div *ngIf="submitted && form.telephone.errors" class="text-danger">
-            <div *ngIf="form.telephone.errors.required">Phone number is required</div>
+            <div *ngIf="form.telephone.errors.required">Telefoon nummer is verplicht</div>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="mb-3">
-          <label for="lastname" class="form-label ">Lastname</label>
+          <label for="lastname" class="form-label ">Achternaam</label>
           <input type="text" class="form-control" id="lastname" name="lastname"
                  formControlName="lastname" [(ngModel)]="user.lastName">
           <div *ngIf="submitted && form.lastname.errors" class="text-danger">
-            <div *ngIf="form.lastname.errors.required">Lastname is required</div>
+            <div *ngIf="form.lastname.errors.required">Achternaam is verplicht</div>
           </div>
         </div>
 
@@ -75,25 +75,25 @@
 <!--            </select>-->
 <!--          </div>-->
           <div class="mb-3">
-            <label for="gender" class="form-label">Select your gender</label>
+            <label for="gender" class="form-label">Selecteer uw geslacht</label>
             <select class="form-select" id="gender" name="gender" formControlName="gender">
-              <option *ngIf="genders == null || genders.length == 0">No genders available</option>
+              <option *ngIf="genders == null || genders.length == 0">Geen geslacht beschikbaar</option>
               <option></option>
               <option *ngFor="let gender of genders" value="{{gender.viewValue}}">{{gender.viewValue}}</option>
             </select>
             <div *ngIf="submitted && form.gender.errors" class="text-danger">
-              <div *ngIf="form.gender.errors.required">Gender is required</div>
+              <div *ngIf="form.gender.errors.required">Geslacht is verplicht</div>
             </div>
           </div>
         </div>
 
 
         <div class="mb-3">
-          <label for="dateOfBirth" class="form-label ">Date of birth</label>
+          <label for="dateOfBirth" class="form-label ">Geboorte datum</label>
           <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth"
                  formControlName="dateOfBirth" [(ngModel)]="user.dob">
           <div *ngIf="submitted && form.dateOfBirth.errors" class="text-danger">
-            <div *ngIf="form.dateOfBirth.errors.required">Date of birth is required</div>
+            <div *ngIf="form.dateOfBirth.errors.required">Geboorte datum is verplicht</div>
           </div>
         </div>
       </div>
@@ -103,58 +103,58 @@
       <input type="email" class="form-control" id="email" name="email" formControlName="email"
              [(ngModel)]="user.email">
       <div *ngIf="submitted && form.email.errors" class="text-danger">
-        <div *ngIf="form.email.errors.required">E-mail is required</div>
-        <div *ngIf="form.email.errors.email">E-mail not valid</div>
+        <div *ngIf="form.email.errors.required">E-mail is verplicht</div>
+        <div *ngIf="form.email.errors.email">E-mail is niet geldig</div>
 
       </div>
     </div>
     <div class="mb-3">
-      <label for="userName" class="form-label ">Username</label>
+      <label for="userName" class="form-label ">Gebruikersnaam</label>
       <input type="text" class="form-control" id="userName" name="userName"
              formControlName="userName" [(ngModel)]="user.username">
       <div *ngIf="submitted && form.userName.errors" class="text-danger">
-        <div *ngIf="form.userName.errors.required">Username is required</div>
+        <div *ngIf="form.userName.errors.required">Gebruikersnaam is verplicht</div>
       </div>
     </div>
     <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
+      <label for="password" class="form-label">Wachtwoord</label>
       <input type="password" class="form-control" id="password" name="password"
              formControlName="password" [(ngModel)]="user.password">
       <div *ngIf="submitted && form.password.errors" class="text-danger">
-        <div *ngIf="form.password.errors.required">Password is required</div>
-        <div *ngIf="form.password.errors.minlength">Password must be at least 8 characters</div>
+        <div *ngIf="form.password.errors.required">Wachtwoord is verplicht</div>
+        <div *ngIf="form.password.errors.minlength">Wachtwoord moet minstens 8 karakters bevatten</div>
       </div>
     </div>
     <div class="mb-3">
-      <label for="confirmPassword" class="form-label">Confirm password</label>
+      <label for="confirmPassword" class="form-label">Bevestig wachtwoord</label>
       <input type="password" class="form-control" id="confirmPassword" name="" formControlName="confirmPassword">
       <div *ngIf="submitted && form.confirmPassword.errors" class="text-danger">
-        <div *ngIf="form.confirmPassword.errors.required">Confirm password is required</div>
-        <div *ngIf="form.confirmPassword.errors.mustMatch">Confirm password did not match</div>
+        <div *ngIf="form.confirmPassword.errors.required">Wachtwoord bevestiging is verplicht</div>
+        <div *ngIf="form.confirmPassword.errors.mustMatch">Wachtwoord bevestiging kwam niet overeen</div>
       </div>
     </div>
     <div class="mb-3">
 
-      <label for="roleSelect" class="form-label">Select your role</label>
+      <label for="roleSelect" class="form-label">Selecteer gebruikers rol</label>
 
       <div class="row">
         <div class="col-12">
           <select class="form-select" id="roleSelect" name="roleSelect"
                   formControlName="roleSelect" [(ngModel)]="user.roleId">
-            <option *ngIf="allRoles == null || allRoles.length == 0">No roles available</option>
+            <option *ngIf="allRoles == null || allRoles.length == 0">Geen rollen beschikbaar</option>
             <option></option>
             <option *ngFor="let role of allRoles"
                     value="{{role?.id}}">{{role?.type}}</option>
           </select>
           <div *ngIf="submitted && form.roleSelect.errors" class="text-danger">
-            <div *ngIf="form.roleSelect.errors.required">Role is required</div>
+            <div *ngIf="form.roleSelect.errors.required">Rol is verplicht</div>
           </div>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <button class="w-100 btn btn-md btn-primary" id="submit-button" type="submit">Submit</button>
+        <button class="w-100 btn btn-md btn-primary" id="submit-button" type="submit">Opslaan</button>
       </div>
       <!--<div class="col">
         <button routerLink="/login" class="w-100 btn btn-md btn-primary ">Back to login</button>

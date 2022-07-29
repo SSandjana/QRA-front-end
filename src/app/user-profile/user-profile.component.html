@@ -1,5 +1,5 @@
 <div id="container" class="container pt-5 pb-5 mt-5">
-  <h1 class="text-center">User Information</h1>
+  <h1 class="text-center">Gebruikers informatie</h1>
   <div class="main-body">
     <div class="row gutters-sm">
       <div class="col-md-5">
@@ -12,8 +12,8 @@
                 <h4>{{getUser().firstName + ' ' + getUser().lastName}}</h4>
                 <p class="text-secondary mb-1">{{getUser().role.type}}</p>
                 <p class="text-muted font-size-sm">Paramaribo, Suriname</p>
-                <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#passwordModal">Change
-                  password
+                <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#passwordModal">Wijzig
+                  wachtwoord
                 </button>
               </div>
             </div>
@@ -25,7 +25,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-sm-4">
-                <h6 class="mb-0">Full Name</h6>
+                <h6 class="mb-0">Volledige Naam</h6>
               </div>
               <div class="col-sm-8 text-secondary">
                 {{getUser().firstName + ' ' + getUser().lastName}}
@@ -34,7 +34,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-4">
-                <h6 class="mb-0">Username</h6>
+                <h6 class="mb-0">Gebruikersnaam</h6>
               </div>
               <div class="col-sm-8 text-secondary">
                 {{getUser().username}}
@@ -43,7 +43,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-4">
-                <h6 class="mb-0">ID Number</h6>
+                <h6 class="mb-0">ID Nummer</h6>
               </div>
               <div class="col-sm-8 text-secondary">
                 {{getUser().idNumber}}
@@ -52,7 +52,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-4">
-                <h6 class="mb-0">Date of Birth</h6>
+                <h6 class="mb-0">Geboorte datum</h6>
               </div>
               <div class="col-sm-8 text-secondary">
                 {{getUser().dob}}
@@ -61,7 +61,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-4">
-                <h6 class="mb-0">Telephone</h6>
+                <h6 class="mb-0">Telefoon</h6>
               </div>
               <div class="col-sm-8 text-secondary">
                 {{getUser().telephone}}
@@ -88,47 +88,47 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="passwordModalLabel">Change password</h5>
+        <h5 class="modal-title" id="passwordModalLabel">Wijzig wachtwoord</h5>
         <button type="button" #closeModal class="btn-close" data-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="container" id="main-container">
           <form (ngSubmit)="changePassword()" [formGroup]="passwordForm">
             <div class="mb-3 row">
-              <label for="password" class="col-sm-4 col-form-label">Current password</label>
+              <label for="password" class="col-sm-4 col-form-label">Huidige wachtwoord</label>
               <div class="col-sm-8">
                 <input [formControlName]="'password'" type="password" class="form-control" id="password">
                 <div *ngIf="passwordForm.get('password').touched && passwordForm.get('password').errors">
                 <span class="text-danger" *ngIf="passwordForm.get('password').errors.required">
-                Password required</span>
+                Wachtwoord verplicht</span>
                 </div>
               </div>
             </div>
             <div class="mb-3 row">
-              <label for="password" class="col-sm-4 col-form-label">New password</label>
+              <label for="password" class="col-sm-4 col-form-label">Nieuwe wachtwoord</label>
               <div class="col-sm-8">
                 <input [formControlName]="'newPassword'" type="password" class="form-control" id="newPassword">
                 <div *ngIf="passwordForm.get('newPassword').touched && passwordForm.get('newPassword').errors">
                 <span class="text-danger" *ngIf="passwordForm.get('newPassword').errors.required">
-                New password required</span>
+                Nieuwe wachtwoord verplicht</span>
                   <span class="text-danger" *ngIf="passwordForm.get('newPassword').errors.minlength">
-                New password must be at least 8 characters</span>
+                Nieuwe wachtwoord moet minstens 8 karakters bevatten</span>
                 </div>
               </div>
             </div>
             <div class="mb-3 row">
-              <label for="confirmPassword" class="col-sm-4 col-form-label">Confirm password</label>
+              <label for="confirmPassword" class="col-sm-4 col-form-label">Bevestig wachtwoord</label>
               <div class="col-sm-8">
                 <input [formControlName]="'confirmPassword'" type="password" class="form-control" id="confirmPassword">
                 <div *ngIf="passwordForm.get('confirmPassword').touched && passwordForm.get('confirmPassword').errors">
-                  <span class="text-danger" *ngIf="passwordForm.get('confirmPassword').errors.required">Confirm password is required</span>
+                  <span class="text-danger" *ngIf="passwordForm.get('confirmPassword').errors.required">Bevestig wachtwoord is verplicht</span>
                   <span class="text-danger"
-                        *ngIf="passwordForm.get('confirmPassword').errors.mustMatch">Confirm password did not match</span>
+                        *ngIf="passwordForm.get('confirmPassword').errors.mustMatch">Bevestig wachtwoord kwam niet overeen</span>
                 </div>
               </div>
             </div>
             <div class="text-center">
-              <button class="btn btn-primary" type="submit">Change password</button>
+              <button class="btn btn-primary" type="submit">Wijzig wachtwoord</button>
             </div>
           </form>
         </div>
