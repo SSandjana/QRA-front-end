@@ -1,0 +1,32 @@
+body{
+  align-content: center;
+  padding-top: 100px;
+  padding-left: 400px;
+}
+
+main{
+  position: absolute;
+  width: 700px;
+  height: 550px;
+  z-index: 10;
+}
+
+#tr{
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  z-index: 1;
+  background: #000000;
+  right: 414px;
+  top: 80px;
+}
+
+#bl{
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  z-index: 1;
+  background: #000000;
+  left: 380px;
+  bottom: 80px;
+}
