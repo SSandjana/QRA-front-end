@@ -10,10 +10,7 @@ import {AdminGuard} from "./guards/admin.guard";
 import {UserProfileComponent} from "./user-profile/user-profile.component";
 import {VoertuigComponent} from "./voertuig/voertuig.component";
 import {ClientGuard} from "./guards/client.guard";
-import {UserTableComponent} from "./user-table/user-table.component";
-import {VerzekeringsformulierComponent} from "./verzekeringsformulier/verzekeringsformulier.component";
 import {AanrijdingsformulierComponent} from "./aanrijdingsformulier/aanrijdingsformulier.component";
-import {TestingComponent} from "./testing/testing.component";
 import {ClaimsComponent} from "./claims/claims.component";
 import {ViewFormComponent} from "./view-form/view-form.component";
 
@@ -46,12 +43,12 @@ const routes: Routes = [
       {
         path: 'view-form',
         component: ViewFormComponent,
-        canActivate: [AuthGuard, AdminGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'claims',
         component: ClaimsComponent,
-        canActivate: [AuthGuard, AdminGuard]
+        canActivate: [AuthGuard]
       }
     ]
   },

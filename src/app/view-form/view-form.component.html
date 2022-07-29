@@ -14,7 +14,7 @@
     <!--    assets/FR00f0001-2022-07-28.pdf-->
   </ngx-extended-pdf-viewer>
 
-  <div *ngIf="updates.afgehandeld === 'pending'"  class="me-auto mb-2 mb-lg-0 nav nav-pills"
+  <div *ngIf="updates.afgehandeld === 'pending' && authService.isAdmin()" class="me-auto mb-2 mb-lg-0 nav nav-pills"
        style="position: relative; margin-left: 500px; margin-top: 7px;">
     <button (click)="accept()"
             class="btn btn-primary nav-link" style="background: #0d6efd; color: #ffffff;">

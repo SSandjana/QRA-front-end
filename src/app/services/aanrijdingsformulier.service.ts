@@ -17,6 +17,10 @@ export class AanrijdingsformulierService {
     return this.http.get<Aanrijdingsformulier[]>(`${this.apiServerUrl}/aanrijdingsformulier/find/all/formulieren`);
   }
 
+  public getAllFormsByUserId(userId: any): Observable<Aanrijdingsformulier[]> {
+    return this.http.get<Aanrijdingsformulier[]>(`${this.apiServerUrl}/aanrijdingsformulier/find/all/formulieren/by/user/id/${userId}`);
+  }
+
   getFormByName(naam: any): Observable<any> {
     let params: HttpParams = new HttpParams();
     params = params.set('naam', naam?.toString());

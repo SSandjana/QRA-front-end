@@ -22,7 +22,7 @@ export class AuthService {
     this.router.navigate(['login']);
   }
 
-  isAdmin() {
+ public isAdmin() {
     if (JSON.parse(sessionStorage.getItem('user')).role.type === "Admin") {
       return true;
     }
@@ -36,7 +36,7 @@ export class AuthService {
     return false;
   }
 
-  isClient() {
+  public isClient() {
     if (JSON.parse(sessionStorage.getItem('user')).role.type === "Client") {
       return true;
     }

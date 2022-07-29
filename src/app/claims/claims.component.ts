@@ -5,6 +5,7 @@ import {AanrijdingsformulierService} from "../services/aanrijdingsformulier.serv
 import {SubscriptionService} from "../services/subscription.service";
 import {tap} from "rxjs/operators";
 import {Observable} from "rxjs";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-claims',
@@ -17,11 +18,13 @@ export class ClaimsComponent implements OnInit {
   @Input() refresh!: Observable<boolean>;
   public claims: Aanrijdingsformulier[];
   p: number = 1;
+  private user: any;
 
-  constructor(private router:Router,
+  constructor(private router: Router,
               private aanrijdingsformulierService: AanrijdingsformulierService,
               private subscriptionService: SubscriptionService,
-              ) {
+              public authService: AuthService
+  ) {
     this.getclaims();
 
   }
@@ -40,17 +43,30 @@ export class ClaimsComponent implements OnInit {
       .subscribe();
   }
 
-  private getclaims(){
-    this.aanrijdingsformulierService.getAllForms().subscribe(
-      (formulieren: any) => {
-        if (formulieren != null){
-          this.claims = formulieren;
+  private getclaims() {
+    if (this.authService.isAdmin()) {
+      this.aanrijdingsformulierService.getAllForms().subscribe(
+        (formulieren: any) => {
+          if (formulieren != null) {
+            this.claims = formulieren;
+          }
         }
-      }
-    )
+      )
+    }
+
+    if (this.authService.isClient()) {
+      this.user = this.authService.getUser();
+      this.aanrijdingsformulierService.getAllFormsByUserId(this.user.id).subscribe(
+        (formulieren: any) => {
+          if (formulieren != null) {
+            this.claims = formulieren;
+          }
+        }
+      )
+    }
   }
 
-  test(claim: Aanrijdingsformulier) {
+  viewForm(claim: Aanrijdingsformulier) {
     sessionStorage.setItem('claim', JSON.stringify(claim));
 
     sessionStorage.setItem('formName', 'assets/' + claim.naam + '.pdf');

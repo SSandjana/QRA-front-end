@@ -4,6 +4,7 @@ import {AanrijdingsformulierService} from "../services/aanrijdingsformulier.serv
 import {Aanrijdingsformulier} from "../classes/aanrijdingsformulier";
 import Swal from "sweetalert2";
 import {HttpErrorResponse} from "@angular/common/http";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-view-form',
@@ -19,7 +20,8 @@ export class ViewFormComponent implements OnInit {
   public naam: string;
 
   constructor(private router: Router,
-              private viewFormService: AanrijdingsformulierService) {
+              private viewFormService: AanrijdingsformulierService,
+              public authService: AuthService) {
     this.getFormName();
   }
 
@@ -27,7 +29,7 @@ export class ViewFormComponent implements OnInit {
     this.getClaim()
   }
 
-  getFormName():string{
+  getFormName(): string {
     return this.name = sessionStorage.getItem('formName');
   }
 
