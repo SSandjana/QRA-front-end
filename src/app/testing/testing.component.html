@@ -1,0 +1,6 @@
+<div>
+  <h3>Choose file</h3>
+  <img src="{{url}}" style="width: 100px; height: 100px; z-index: 10">
+  <img [src]="url" alt="image" style="width: 100px; height: 100px;">
+  <input type="file" (change)="selectFile($event)">
+</div>

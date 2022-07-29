@@ -30,6 +30,13 @@ import { UploadDocumentsVoertuigComponent } from './upload-documents/upload-docu
 import { UploadDialogVoertuigComponent } from './upload-dialog/upload-dialog-voertuig/upload-dialog-voertuig.component';
 import { UploadVoertuigComponent } from './upload/upload-voertuig/upload-voertuig.component';
 import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
+import { UserTableComponent } from './user-table/user-table.component';
+import { AanrijdingsformulierComponent } from './aanrijdingsformulier/aanrijdingsformulier.component';
+import { VerzekeringsformulierComponent } from './verzekeringsformulier/verzekeringsformulier.component';
+import { TestingComponent } from './testing/testing.component';
+import { ClaimsComponent } from './claims/claims.component';
+import { ViewFormComponent } from './view-form/view-form.component';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 @NgModule({
   declarations: [
@@ -48,7 +55,14 @@ import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
     AddVoertuigComponent,
     UploadDocumentsVoertuigComponent,
     UploadDialogVoertuigComponent,
-    UploadVoertuigComponent
+    UploadVoertuigComponent,
+    VoertuigComponent,
+    UserTableComponent,
+    AanrijdingsformulierComponent,
+    VerzekeringsformulierComponent,
+    TestingComponent,
+    ClaimsComponent,
+    ViewFormComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +79,8 @@ import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
     TooltipModule,
     SimpleModalModule,
     TableModule,
-    NgxIntlTelInputModule
+    NgxIntlTelInputModule,
+    NgxExtendedPdfViewerModule
   ],
   providers: [SimpleModalService],
   bootstrap: [AppComponent]

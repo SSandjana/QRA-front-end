@@ -1,1 +1,9 @@
 @import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
+
+#logo{
+  position: relative;
+  width: 57px;
+  height: 57px;
+  margin-top: 3px;
+  margin-right: 21px;
+}

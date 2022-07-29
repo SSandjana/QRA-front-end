@@ -32,10 +32,14 @@ export class HeaderComponent implements OnInit {
   }
 
   navigateToRegistrationForm() {
-    this.router.navigate(['register'])
+    this.router.navigate(['register']);
   }
 
   navigateToVoertuigForm() {
-    this.router.navigate(['voertuig'])
+    this.router.navigate(['voertuig']);
+  }
+
+  navigateToClaims() {
+    this.router.navigate(['claims']);
   }
 }

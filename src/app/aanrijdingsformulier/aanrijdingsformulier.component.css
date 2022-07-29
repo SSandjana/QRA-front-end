@@ -1,0 +1,211 @@
+#container{
+  margin-top: 100px;
+  margin-left: 14px;
+  margin-right: 14px;
+}
+
+#title{
+  margin-left: 600px;
+}
+
+#global{
+  border: 1px solid #000000;
+  padding: 11px;
+  margin-bottom: 7px;
+  height: 150px;
+}
+
+.sub-sections{
+  position: relative;
+  border: 1px solid #000000;
+  width: 225px;
+  padding: 7px;
+}
+
+.sub-sections1{
+  position: absolute;
+  border: 1px solid #000000;
+  width: 225px;
+  padding: 7px;
+  margin-left: 235px;
+  top: 370px;
+}
+
+.inputA{
+  position: relative;
+  margin-left: 100px;
+  top: -25px;
+  width: 350px;
+  height: 30px;
+}
+
+.inputB{
+  height: 30px;
+}
+
+.inputC{
+  width: 100%;
+  height: 50px;
+}
+
+#voertuigA{
+  position: absolute;
+  width: 33%;
+  /*height: 100px;*/
+  background: #025aa5;
+  left: 14px;
+  z-index: 1;
+}
+
+h4{
+  color: #ffffff;
+  margin-left: 200px;
+  margin-top: 7px;
+}
+
+.sections{
+  background: #ffffff;
+  width: 485px;
+  margin: 9px;
+  padding: 14px;
+}
+
+.spaceSectionsB{
+  background: gold;
+  width: 485px;
+  height: 7px;
+  margin: 9px;
+}
+
+.spaceSectionsA{
+  background: #025aa5;
+  width: 485px;
+  height: 7px;
+  margin: 9px;
+}
+
+#toedracht{
+  position: absolute;
+  width: 30%;
+  border: 1px solid #000000;
+  left: 532px;
+  z-index: 5;
+}
+
+#voertuigB{
+  position: absolute;
+  width: 33%;
+  background: gold;
+  right: 14px;
+  z-index: 1;
+}
+
+h6{
+  width: 100%;
+  text-align: center;
+}
+
+#opmerking{
+  position: relative;
+  width: 100%;
+  text-align: center;
+  left: 117px;
+}
+
+.toedrachtSection{
+  position: relative;
+  width: 100%;
+  padding: 11px;
+}
+
+#pictureSection{
+  position: absolute;
+  width: 49%;
+  border: 1px solid #000000;
+}
+
+#pictureSection1{
+  position: absolute;
+  width: 49%;
+  border: 1px solid #000000;
+  left: 233px;
+}
+
+#pictureSection2{
+  position: absolute;
+  width: 49%;
+  border: 1px solid #000000;
+  top: 1557px;
+}
+
+#pictureSection3{
+  position: absolute;
+  width: 49%;
+  border: 1px solid #000000;
+  top: 1557px;
+  left: 233px;
+}
+
+#convert{
+  position: absolute;
+  top: 1830px;
+}
+
+#uitleg{
+  width: 100%;
+  height: 300px;
+}
+
+.labels{
+  width: 91%;
+  text-align: center;
+}
+
+.input1{
+  position: relative;
+  width: 17px;
+  height: 17px;
+  margin-left: 0;
+}
+
+.input2{
+  width: 17px;
+  height: 17px;
+  right: 0;
+  position: relative;
+}
+
+input{
+  padding: 3px;
+}
+
+.inputText{
+  width: 400px;
+  height: 30px;
+  margin-bottom: 3px;
+}
+
+.inputCheck{
+  width: 17px;
+  height: 17px;
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+.pictures{
+  width: 100%;
+  height: 100px;
+}
+
+#glob-check{
+  position: relative;
+  margin-left: 600px;
+  top: -120px;
+}
+
+#getuigen{
+  position: relative;
+  margin-left: 1000px;
+  top:-225px;
+}
+

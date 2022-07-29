@@ -1,1 +1,6 @@
-<router-outlet></router-outlet>
+<router-outlet>
+  <div id="convert" style="position:absolute; margin-left: 1350px; z-index: 11;"
+  *ngIf="getUrl() === '/aanrijdingsformulier'">
+  <input type="button" class="btn btn-danger" value="Registreren" (click)="convertToPDF()" />
+</div>
+</router-outlet>

@@ -1,0 +1,757 @@
+<body>
+<div id="container">
+  <h3 id="title"> Aanrijdingsformulier</h3>
+  <form (ngSubmit)="submitForm()" [formGroup]="aanrijdingsfromulier">
+    <section id="global">
+
+      <div class="form-group">
+        <label for="date">Datum aanrijding:</label><br>
+        <input class="inputText" required formControlName="date" id="date" type="date" name="date"><br>
+        <span style="color: red"
+              *ngIf="(aanrijdingsfromulier.controls['date'].touched || aanrijdingsfromulier.controls['date'].dirty) && aanrijdingsfromulier.hasError('required', 'date') ">
+          <small>Datum is vereist!</small>
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label for="location">Locatie:</label><br>
+        <input class="inputText" required formControlName="location" id="location" type="text"
+               placeholder="Land/plaats/straat" name="location"><br>
+        <span style="color: red"
+              *ngIf="(aanrijdingsfromulier.controls['location'].touched || aanrijdingsfromulier.controls['location'].dirty) && aanrijdingsfromulier.hasError('required', 'location') ">
+          <small>Locatie is vereist!</small>
+        </span>
+      </div>
+
+      <div id="glob-check">
+        <div class="form-group">
+          <label>Gewonden, ook licht gewond:</label><br>
+          <input class="inputCheck" formControlName="yes" id="yes" type="checkbox" name="yes" value="true">
+          <label for="yes">Ja</label>
+          <input class="inputCheck" formControlName="no" id="no" type="checkbox" name="no" value="false">
+          <label for="no">Nee</label><br>
+        </div>
+
+        <div class="form-group">
+          <label>Materiele shaden:</label><br>
+          <input class="inputCheck" formControlName="welSchade" id="welSchade" type="checkbox" name="welSchade" value="true">
+          <label for="welSchade">Ja</label>
+          <input class="inputCheck" formControlName="geenSchade" id="geenSchade" type="checkbox" name="geenSchade" value="false">
+          <label for="geenSchade">Nee</label><br>
+        </div>
+      </div>
+
+      <div id="getuigen">
+        <div class="form-group">
+          <label for="location">Getuigen:</label><br>
+          <input class="inputText" formControlName="gname" id="gname" type="text"
+                 placeholder="Voornaam Achternaam" name="gname"><br>
+          <input class="inputText" formControlName="gaddress" id="gaddress" type="text"
+                 placeholder="Suriname, Ergensweg #7" name="gaddress"><br>
+          <input class="inputText" formControlName="gnummer" id="gnummer" type="text"
+                 placeholder="+597 8888888" name="gnummer"><br>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="voertuigA">
+      <h4>Voertuig A</h4>
+      <div class="sections">
+        Verzekeringnemer/verzekerde (zie verzekeringspolis)
+        <div class="form-group">
+          <label for="naamA">Naam:</label><br>
+          <input class="inputA" required formControlName="naamA" id="naamA" type="text" name="naamA">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['naamA'].touched || aanrijdingsfromulier.controls['naamA'].dirty) && aanrijdingsfromulier.hasError('required', 'naamA') ">
+          <small>Naam is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="voornaamA">Voornaam:</label><br>
+          <input class="inputA" required formControlName="voornaamA" id="voornaamA" type="text" name="voornaamA">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['voornaamA'].touched || aanrijdingsfromulier.controls['voornaamA'].dirty) && aanrijdingsfromulier.hasError('required', 'voornaamA') ">
+          <small>Voornaam is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="addressA">Adres:</label><br>
+          <input class="inputA" formControlName="addressA" id="addressA" type="text" name="addressA">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['addressA'].touched || aanrijdingsfromulier.controls['addressA'].dirty) && aanrijdingsfromulier.hasError('required', 'addressA') ">
+          <small>Adres is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="telA">Tel/Email:</label><br>
+          <input class="inputA" formControlName="telA" id="telA" type="text" name="telA">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['telA'].touched || aanrijdingsfromulier.controls['telA'].dirty) && aanrijdingsfromulier.hasError('required', 'telA') ">
+          <small>Contact is vereist!</small>
+        </span>
+        </div>
+
+      </div>
+
+      <div class="sections">
+        Voertuig
+        <div class="sub-sections">
+          Motorrijtuig
+
+          <div class="form-group">
+            <label for="merkA">Merk, type:</label><br>
+            <input class="inputB" formControlName="merkA" id="merkA" type="text" name="merkA">
+            <span style="color: red"
+                  *ngIf="(aanrijdingsfromulier.controls['merkA'].touched || aanrijdingsfromulier.controls['merkA'].dirty) && aanrijdingsfromulier.hasError('required', 'merkA') ">
+              <small>Merk, type is vereist!</small>
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="kentekenA">Kenteken:</label><br>
+            <input class="inputB" formControlName="kentekenA" id="kentekenA" type="text" name="kentekenA">
+            <span style="color: red"
+                  *ngIf="(aanrijdingsfromulier.controls['kentekenA'].touched || aanrijdingsfromulier.controls['kentekenA'].dirty) && aanrijdingsfromulier.hasError('required', 'kentekenA') ">
+              <small>Kenteken is vereist!</small>
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="regA">Land van registratie:</label><br>
+            <input class="inputB" formControlName="regA" id="regA" type="text" name="regA">
+            <span style="color: red"
+                  *ngIf="(aanrijdingsfromulier.controls['regA'].touched || aanrijdingsfromulier.controls['regA'].dirty) && aanrijdingsfromulier.hasError('required', 'regA') ">
+              <small>Land van registratie is vereist!</small>
+            </span>
+          </div>
+
+        </div>
+
+        <div class="sub-sections" class="sub-sections1">
+          Aanhangwagen
+
+          <div class="form-group">
+            <label for="merkA1">Merk, type:</label><br>
+            <input class="inputB" formControlName="merkA1" id="merkA1" type="text" name="merkA1">
+            <span style="color: red"
+                  *ngIf="(aanrijdingsfromulier.controls['merkA1'].touched || aanrijdingsfromulier.controls['merkA1'].dirty) && aanrijdingsfromulier.hasError('required', 'merkA1') ">
+              <small>Merk, type is vereist!</small>
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="kentekenA1">Kenteken:</label><br>
+            <input class="inputB" formControlName="kentekenA1" id="kentekenA1" type="text" name="kentekenA1">
+            <span style="color: red"
+                  *ngIf="(aanrijdingsfromulier.controls['kentekenA1'].touched || aanrijdingsfromulier.controls['kentekenA1'].dirty) && aanrijdingsfromulier.hasError('required', 'kentekenA1') ">
+              <small>Kenteken is vereist!</small>
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="regA1">Land van registratie:</label><br>
+            <input class="inputB" formControlName="regA1" id="regA1" type="text" name="regA1">
+            <span style="color: red"
+                  *ngIf="(aanrijdingsfromulier.controls['regA1'].touched || aanrijdingsfromulier.controls['regA1'].dirty) && aanrijdingsfromulier.hasError('required', 'regA1') ">
+              <small>Land van registratie is vereist!</small>
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="sections">
+        Verzekeringsmaatschappij (zie verzekeringspolis)
+        <div class="form-group">
+          <label for="naamA8">Naam:</label><br>
+          <input class="inputA" formControlName="naamA8" id="naamA8" type="text" name="naamA8">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['naamA8'].touched || aanrijdingsfromulier.controls['naamA8'].dirty) && aanrijdingsfromulier.hasError('required', 'naamA8') ">
+          <small>Naam is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="polisnummerA">Polisnummer:</label><br>
+          <input class="inputA" formControlName="polisnummerA" id="polisnummerA" type="text" name="polisnummerA">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['polisnummerA'].touched || aanrijdingsfromulier.controls['polisnummerA'].dirty) && aanrijdingsfromulier.hasError('required', 'polisnummerA') ">
+          <small>Polis is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="gkA">Groene kaart:</label><br>
+          <input class="inputA" formControlName="gkA" id="gkA" type="text" name="gkA">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['gkA'].touched || aanrijdingsfromulier.controls['gkA'].dirty) && aanrijdingsfromulier.hasError('required', 'gkA') ">
+          <small>Groene kaart nummer is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="geldigVanA">Geldig van:</label><br>
+          <input class="inputA" formControlName="geldigVanA" id="geldigVanA" type="date" name="geldigVanA">
+        </div>
+
+        <div class="form-group">
+          <label for="geldigTotA">Geldig tot:</label><br>
+          <input class="inputA" formControlName="geldigTotA" id="geldigTotA" type="date" name="GeldigTotA">
+        </div>
+
+        Agentschap
+
+        <div class="form-group">
+          <label for="agentnaamA">Naam:</label><br>
+          <input class="inputA" formControlName="agentnaamA" id="agentnaamA" type="text" name="agentnaamA">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['agentnaamA'].touched || aanrijdingsfromulier.controls['agentnaamA'].dirty) && aanrijdingsfromulier.hasError('required', 'agentnaamA') ">
+          <small>Naam is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="agentaddressA">Adres:</label><br>
+          <input class="inputA" formControlName="agentaddressA" id="agentaddressA" type="text" name="agentaddressA">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['agentaddressA'].touched || aanrijdingsfromulier.controls['agentaddressA'].dirty) && aanrijdingsfromulier.hasError('required', 'agentaddressA') ">
+          <small>Adres is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="agenttelA">Tel/Email:</label><br>
+          <input class="inputA" formControlName="agenttelA" id="agenttelA" type="text" name="agenttelA">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['agenttelA'].touched || aanrijdingsfromulier.controls['agenttelA'].dirty) && aanrijdingsfromulier.hasError('required', 'agenttelA') ">
+          <small>Contact is vereist!</small>
+        </span>
+        </div>
+
+      </div>
+
+
+      <div class="sections">
+        Bestuurder (zie rijbewijs)
+        <div class="form-group">
+          <label for="naamA9">Naam:</label><br>
+          <input class="inputA" formControlName="naamA9" id="naamA9" type="text" name="naamA9">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['naamA9'].touched || aanrijdingsfromulier.controls['naamA9'].dirty) && aanrijdingsfromulier.hasError('required', 'naamA9') ">
+          <small>Naam is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="voornaamA9">Voornaam:</label><br>
+          <input class="inputA" formControlName="voornaamA9" id="voornaamA9" type="text" name="voornaamA9">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['voornaamA9'].touched || aanrijdingsfromulier.controls['voornaamA9'].dirty) && aanrijdingsfromulier.hasError('required', 'voornaamA9') ">
+          <small>Voornaam is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="dobA9">Geb. datum:</label><br>
+          <input class="inputA" formControlName="dobA9" id="dobA9" type="date" name="dobA9">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['dobA9'].touched || aanrijdingsfromulier.controls['dobA9'].dirty) && aanrijdingsfromulier.hasError('required', 'dobA9') ">
+          <small>Geboortedatum is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="bankA">Rek. nummer:</label><br>
+          <input class="inputA" formControlName="bankA" id="bankA" type="number" name="bankA">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['bankA'].touched || aanrijdingsfromulier.controls['bankA'].dirty) && aanrijdingsfromulier.hasError('required', 'bankA') ">
+          <small>Rekeningnummer is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="addressA9">Adres:</label><br>
+          <input class="inputA" formControlName="addressA9" id="addressA9" type="text" name="addressA9">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['addressA9'].touched || aanrijdingsfromulier.controls['addressA9'].dirty) && aanrijdingsfromulier.hasError('required', 'addressA9') ">
+          <small>Adres is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="telA9">Tel/Email:</label><br>
+          <input class="inputA" formControlName="telA9" id="telA9" type="text" name="telA9">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['telA9'].touched || aanrijdingsfromulier.controls['telA9'].dirty) && aanrijdingsfromulier.hasError('required', 'telA9') ">
+          <small>Contact is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="rijbewijsA9">Rijbewijsnr.:</label><br>
+          <input class="inputA" formControlName="rijbewijsA9" id="rijbewijsA9" type="text" name="rijbewijsA9">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['rijbewijsA9'].touched || aanrijdingsfromulier.controls['rijbewijsA9'].dirty) && aanrijdingsfromulier.hasError('required', 'rijbewijsA9') ">
+          <small>Rijbewijsnr. is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="rijbewijsTotA9">Geldig tot:</label><br>
+          <input class="inputA" formControlName="rijbewijsTotA9" id="rijbewijsTotA9" type="date" name="rijbewijsTotA9">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['rijbewijsTotA9'].touched || aanrijdingsfromulier.controls['rijbewijsTotA9'].dirty) && aanrijdingsfromulier.hasError('required', 'rijbewijsTotA9') ">
+          <small>Geldigheid is vereist!</small>
+        </span>
+        </div>
+
+      </div>
+
+      <div class="sections">
+        <div class="form-group">
+          <label for="schadeA">Schade:</label><br>
+          <textarea class="inputC" formControlName="schadeA" id="schadeA" type="text" name="schadeA"></textarea>
+        </div>
+      </div>
+
+      <div class="sections">
+        <div class="form-group">
+          <label for="beschrijving">Opmerkingen:</label><br>
+          <textarea class="inputC" formControlName="beschrijving" id="beschrijving" type="text" name="beschrijving"></textarea>
+        </div>
+      </div>
+
+
+      <div class="spaceSectionsA"></div>
+
+    </section>
+
+    <section id="toedracht">
+      <h4 style="color: black">Toedracht</h4>
+      <h6><b>Zet een kruis (X) in elk van de betreffende</b></h6>
+      <h6><b>vlakjes, om de situatie te verduidelijken</b></h6>
+      <small id="opmerking">*Doorhalen wat niet van toepasing is</small>
+
+      <div class="toedrachtSection">
+        <input class="input1" formControlName="ta1" id="ta1" type="checkbox" name="ta1">
+        <label class="labels" for="ta1">Stond geparkeerd/stond stil</label>
+        <input class="input2" formControlName="tb1" id="tb1" type="checkbox" name="tb1">
+      </div>
+
+      <div class="toedrachtSection">
+        <input class="input1" formControlName="ta2" id="ta2" type="checkbox" name="ta2">
+        <label class="labels" for="ta2">Verliet een parkeerplaats</label>
+        <input class="input2" formControlName="tb2" id="tb2" type="checkbox" name="tb2">
+      </div>
+
+      <div class="toedrachtSection">
+        <input class="input1" formControlName="ta3" id="ta3" type="checkbox" name="ta3">
+        <label class="labels" for="ta3">Ging parkeren </label>
+        <input class="input2" formControlName="tb3" id="tb3" type="checkbox" name="tb3">
+      </div>
+
+      <div class="toedrachtSection">
+        <input class="input1" formControlName="ta4" id="ta4" type="checkbox" name="ta4">
+        <label class="labels" for="ta4">Reed weg van parkeerplaats, inrit, onverharde weg </label>
+        <input class="input2" formControlName="tb4" id="tb4" type="checkbox" name="tb4">
+      </div>
+
+      <div class="toedrachtSection">
+        <input class="input1" formControlName="ta5" id="ta5" type="checkbox" name="ta5">
+        <label class="labels" for="ta5">Parkeerplaats, inrit, onverharde weg op te rijden  </label>
+        <input class="input2" formControlName="tb5" id="tb5" type="checkbox" name="tb5">
+      </div>
+
+      <div class="toedrachtSection">
+        <input class="input1" formControlName="ta6" id="ta6" type="checkbox" name="ta6">
+        <label class="labels" for="ta6">Wilde een rotonde oprijden </label>
+        <input class="input2" formControlName="tb6" id="tb6" type="checkbox" name="tb6">
+      </div>
+
+      <div class="toedrachtSection">
+        <input class="input1" formControlName="ta7" id="ta7" type="checkbox" name="ta7">
+        <label class="labels" for="ta7">Reed op een rotonde </label>
+        <input class="input2" formControlName="tb7" id="tb7" type="checkbox" name="tb7">
+      </div>
+
+      <div class="toedrachtSection">
+        <input class="input1" formControlName="ta8" id="ta8" type="checkbox" name="ta8">
+        <label class="labels" for="ta8">Botste op achterzijde, zelfde richting/rijstrook</label>
+        <input class="input2" formControlName="tb8" id="tb8" type="checkbox" name="tb8">
+      </div>
+
+      <div class="toedrachtSection">
+        <input class="input1" formControlName="ta9" id="ta9" type="checkbox" name="ta9">
+        <label class="labels" for="ta9">Reed in dezelfde richting, maar andere rijstrook</label>
+        <input class="input2" formControlName="tb9" id="tb9" type="checkbox" name="tb9">
+      </div>
+
+      <div class="toedrachtSection">
+        <input class="input1" formControlName="ta10" id="ta10" type="checkbox" name="ta10">
+        <label class="labels" for="ta10">Veranderde van rijstrook</label>
+        <input class="input2" formControlName="tb10" id="tb10" type="checkbox" name="tb10">
+      </div>
+
+      <div class="toedrachtSection">
+        <input class="input1" formControlName="ta11" id="ta11" type="checkbox" name="ta11">
+        <label class="labels" for="ta11">Haalde in</label>
+        <input class="input2" formControlName="tb11" id="tb11" type="checkbox" name="tb11">
+      </div>
+
+      <div class="toedrachtSection">
+        <input class="input1" formControlName="ta12" id="ta12" type="checkbox" name="ta12">
+        <label class="labels" for="ta12">Ging rechtsaf</label>
+        <input class="input2" formControlName="tb12" id="tb12" type="checkbox" name="tb12">
+      </div>
+
+      <div class="toedrachtSection">
+        <input class="input1" formControlName="ta13" id="ta13" type="checkbox" name="ta13">
+        <label class="labels" for="ta13">Ging linksaf</label>
+        <input class="input2" formControlName="tb13" id="tb13" type="checkbox" name="tb13">
+      </div>
+
+      <div class="toedrachtSection">
+        <input class="input1" formControlName="ta14" id="ta14" type="checkbox" name="ta14">
+        <label class="labels" for="ta14">Reed achteruit</label>
+        <input class="input2" formControlName="tb14" id="tb14" type="checkbox" name="tb14">
+      </div>
+
+      <div class="toedrachtSection">
+        <input class="input1" formControlName="ta15" id="ta15" type="checkbox" name="ta15">
+        <label class="labels" for="ta15">Kwam op rijbaan tegemoetkomend verkeer</label>
+        <input class="input2"formControlName="tb15" id="tb15" type="checkbox" name="tb15">
+      </div>
+
+      <div class="toedrachtSection">
+        <input class="input1" formControlName="ta16" id="ta16" type="checkbox" name="ta16">
+        <label class="labels" for="ta16">Kwam van rechts (op een kruising)</label>
+        <input class="input2" formControlName="tb16" id="tb16" type="checkbox" name="tb16">
+      </div>
+
+      <div class="toedrachtSection">
+        <input class="input1" formControlName="ta17" id="ta17" type="checkbox" name="ta17">
+        <label class="labels" for="ta17">Lette niet op een voorrangsteken/rood licht</label>
+        <input class="input2" formControlName="tb17" id="tb17" type="checkbox" name="tb17">
+      </div>
+
+      <div class="toedrachtSection">
+        <label for="uitleg">Beschrijving:</label>
+        <textarea id="uitleg" placeholder="Beschrijf de situatie zo duidelijk als mogelijk..."></textarea>
+      </div>
+
+      <div id="pictureSection">
+        Achteropzicht
+        <img [src]="url" alt="image" style="width: 200px; height: 200px;">
+        <input type="file" (change)="selectFile($event)">
+      </div>
+
+      <div id="pictureSection1">
+        Vooropzicht
+        <img [src]="url1" alt="image" style="width: 200px; height: 200px;">
+        <input type="file" (change)="selectFile1($event)">
+      </div>
+
+      <div id="pictureSection2">
+        Linkeropzicht
+        <img [src]="url2" alt="image" style="width: 200px; height: 200px;">
+        <input type="file" (change)="selectFile2($event)">
+      </div>
+
+      <div id="pictureSection3">
+        Rechteropzicht
+        <img [src]="url3" alt="image" style="width: 200px; height: 200px;">
+        <input type="file" (change)="selectFile3($event)">
+      </div>
+
+    </section>
+
+
+    <section id="voertuigB">
+      <h4>Voertuig B</h4>
+      <div class="sections">
+        Verzekeringnemer/verzekerde (zie verzekeringspolis)
+        <div class="form-group">
+          <label for="naamB">Naam:</label><br>
+          <input class="inputA" formControlName="naamB" id="naamB" type="text" name="naamB">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['naamB'].touched || aanrijdingsfromulier.controls['naamB'].dirty) && aanrijdingsfromulier.hasError('required', 'naamB') ">
+          <small>Naam is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="voornaamB">Voornaam:</label><br>
+          <input class="inputA" formControlName="voornaamB" id="voornaamB" type="text" name="voornaamB">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['voornaamB'].touched || aanrijdingsfromulier.controls['voornaamB'].dirty) && aanrijdingsfromulier.hasError('required', 'voornaamB') ">
+          <small>Voornaam is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="addressB">Adres:</label><br>
+          <input class="inputA" formControlName="addressB" id="addressB" type="text" name="addressB">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['addressB'].touched || aanrijdingsfromulier.controls['addressB'].dirty) && aanrijdingsfromulier.hasError('required', 'addressB') ">
+          <small>Adres is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="telB">Tel/Email:</label><br>
+          <input class="inputA" formControlName="telB" id="telB" type="text" name="telB">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['telB'].touched || aanrijdingsfromulier.controls['telB'].dirty) && aanrijdingsfromulier.hasError('required', 'telB') ">
+          <small>Contact is vereist!</small>
+        </span>
+        </div>
+      </div>
+
+      <div class="sections">
+        Voertuig
+        <div class="sub-sections">
+          Motorrijtuig
+
+          <div class="form-group">
+            <label for="merkB">Merk, type:</label><br>
+            <input class="inputB" formControlName="merkB" id="merkB" type="text" name="merkB">
+            <span style="color: red"
+                  *ngIf="(aanrijdingsfromulier.controls['merkB'].touched || aanrijdingsfromulier.controls['merkB'].dirty) && aanrijdingsfromulier.hasError('required', 'merkB') ">
+              <small>Merk, type is vereist!</small>
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="kentekenB">Kenteken:</label><br>
+            <input class="inputB" formControlName="kentekenB" id="kentekenB" type="text" name="kentekenB">
+            <span style="color: red"
+                  *ngIf="(aanrijdingsfromulier.controls['kentekenB'].touched || aanrijdingsfromulier.controls['kentekenB'].dirty) && aanrijdingsfromulier.hasError('required', 'kentekenB') ">
+              <small>Kenteken is vereist!</small>
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="regB">Land van registratie:</label><br>
+            <input class="inputB" formControlName="regB" id="regB" type="text" name="regB">
+            <span style="color: red"
+                  *ngIf="(aanrijdingsfromulier.controls['regB'].touched || aanrijdingsfromulier.controls['regB'].dirty) && aanrijdingsfromulier.hasError('required', 'regB') ">
+              <small>Land van registratie is vereist!</small>
+            </span>
+          </div>
+
+        </div>
+
+
+        <div class="sub-sections" class="sub-sections1">
+          Aanhangwagen
+
+          <div class="form-group">
+            <label for="merkB1">Merk, type:</label><br>
+            <input class="inputB" formControlName="merkB1" id="merkB1" type="text" name="merkB1">
+            <span style="color: red"
+                  *ngIf="(aanrijdingsfromulier.controls['merkB1'].touched || aanrijdingsfromulier.controls['merkB1'].dirty) && aanrijdingsfromulier.hasError('required', 'merkB1') ">
+              <small>Merk, type is vereist!</small>
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="kentekenB1">Kenteken:</label><br>
+            <input class="inputB" formControlName="kentekenB1" id="kentekenB1" type="text" name="kentekenB1">
+            <span style="color: red"
+                  *ngIf="(aanrijdingsfromulier.controls['kentekenB1'].touched || aanrijdingsfromulier.controls['kentekenB1'].dirty) && aanrijdingsfromulier.hasError('required', 'kentekenB1') ">
+              <small>Kenteken is vereist!</small>
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="regB1">Land van registratie:</label><br>
+            <input class="inputB" formControlName="regB1" id="regB1" type="text" name="regB1">
+            <span style="color: red"
+                  *ngIf="(aanrijdingsfromulier.controls['regB1'].touched || aanrijdingsfromulier.controls['regB1'].dirty) && aanrijdingsfromulier.hasError('required', 'regB1') ">
+              <small>Land van registratie is vereist!</small>
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="sections">
+        Verzekeringsmaatschappij (zie verzekeringspolis)
+        <div class="form-group">
+          <label for="naamB8">Naam:</label><br>
+          <input class="inputA" formControlName="naamB8" id="naamB8" type="text" name="naamB8">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['naamB8'].touched || aanrijdingsfromulier.controls['naamB8'].dirty) && aanrijdingsfromulier.hasError('required', 'naamB8') ">
+          <small>Naam is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="polisnummerB">Polisnummer:</label><br>
+          <input class="inputA" formControlName="polisnummerB" id="polisnummerB" type="text" name="polisnummerB">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['polisnummerB'].touched || aanrijdingsfromulier.controls['polisnummer8'].dirty) && aanrijdingsfromulier.hasError('required', 'polisnummer') ">
+          <small>Polis is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="gkB">Groene kaart:</label><br>
+          <input class="inputA" formControlName="gkB" id="gkB" type="text" name="gkB">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['gkB'].touched || aanrijdingsfromulier.controls['gkB'].dirty) && aanrijdingsfromulier.hasError('required', 'gkB') ">
+          <small>Groene kaart nummer is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="geldigVanB">Geldig van:</label><br>
+          <input class="inputA" formControlName="geldigVanB" id="geldigVanB" type="date" name="geldigVanB">
+        </div>
+
+        <div class="form-group">
+          <label for="geldigTotB">Geldig tot:</label><br>
+          <input class="inputA" formControlName="geldigTotB" id="geldigTotB" type="date" name="GeldigTotB">
+        </div>
+
+        Agentschap
+        <div class="form-group">
+          <label for="agentnaamB">Naam:</label><br>
+          <input class="inputA" formControlName="agentnaamB" id="agentnaamB" type="text" name="agentnaamB">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['agentnaamB'].touched || aanrijdingsfromulier.controls['agentnaamB'].dirty) && aanrijdingsfromulier.hasError('required', 'agentnaamB') ">
+          <small>Naam is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="agentaddressB">Adres:</label><br>
+          <input class="inputA" formControlName="agentaddressB" id="agentaddressB" type="text" name="agentaddressB">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['agentaddressB'].touched || aanrijdingsfromulier.controls['agentaddressB'].dirty) && aanrijdingsfromulier.hasError('required', 'agentaddressB') ">
+          <small>Adres is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="agenttelB">Tel/Email:</label><br>
+          <input class="inputA" formControlName="agenttelB" id="agenttelB" type="text" name="agenttelB">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['aenttelB'].touched || aanrijdingsfromulier.controls['agenttelB'].dirty) && aanrijdingsfromulier.hasError('required', 'agenttelB') ">
+          <small>Contact is vereist!</small>
+        </span>
+        </div>
+
+      </div>
+
+
+      <div class="sections">
+        Bestuurder (zie rijbewijs)
+        <div class="form-group">
+          <label for="naamB9">Naam:</label><br>
+          <input class="inputA" formControlName="naamB9" id="naamB9" type="text" name="naamB9">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['naamB9'].touched || aanrijdingsfromulier.controls['naamB9'].dirty) && aanrijdingsfromulier.hasError('required', 'naamB9') ">
+          <small>Naam is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="voornaamB9">Voornaam:</label><br>
+          <input class="inputA" formControlName="voornaamB9" id="voornaamB9" type="text" name="voornaamB9">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['voornaamB9'].touched || aanrijdingsfromulier.controls['voornaamB9'].dirty) && aanrijdingsfromulier.hasError('required', 'voornaamB9') ">
+          <small>Voornaam is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="dobB9">Geb. datum:</label><br>
+          <input class="inputA" formControlName="dobB9" id="dobB9" type="date" name="dobB9">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['dobB9'].touched || aanrijdingsfromulier.controls['dobB9'].dirty) && aanrijdingsfromulier.hasError('required', 'dobB9') ">
+          <small>Geboortedatum is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="bankB">Rek. nummer:</label><br>
+          <input class="inputA" formControlName="bankB" id="bankB" type="number" name="bankB">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['bankB'].touched || aanrijdingsfromulier.controls['bankB'].dirty) && aanrijdingsfromulier.hasError('required', 'bankB') ">
+          <small>Rekeningnummer is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="addressB9">Adres:</label><br>
+          <input class="inputA" formControlName="addressB9" id="addressB9" type="text" name="addressB9">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['addressB9'].touched || aanrijdingsfromulier.controls['addressB9'].dirty) && aanrijdingsfromulier.hasError('required', 'addressB9') ">
+          <small>Adres is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="telB9">Tel/Email:</label><br>
+          <input class="inputA" formControlName="telB9" id="telB9" type="text" name="telB9">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['telB9'].touched || aanrijdingsfromulier.controls['telB9'].dirty) && aanrijdingsfromulier.hasError('required', 'telB9') ">
+          <small>Contact is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="rijbewijsB9">Rijbewijsnr.:</label><br>
+          <input class="inputA" formControlName="rijbewijsB9" id="rijbewijsB9" type="text" name="rijbewijsB9">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['rijbewijsB9'].touched || aanrijdingsfromulier.controls['rijbewijsB9'].dirty) && aanrijdingsfromulier.hasError('required', 'rijbewijsB9') ">
+          <small>Rijbewijsnr. is vereist!</small>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label for="rijbewijsTotB9">Geldig tot:</label><br>
+          <input class="inputA" formControlName="rijbewijsTotB9" id="rijbewijsTotB9" type="date" name="rijbewijsTotB9">
+          <span style="color: red"
+                *ngIf="(aanrijdingsfromulier.controls['rijbewijsTotB9'].touched || aanrijdingsfromulier.controls['rijbewijsTotB9'].dirty) && aanrijdingsfromulier.hasError('required', 'rijbewijsTotB9') ">
+          <small>Geldigheid is vereist!</small>
+        </span>
+        </div>
+
+      </div>
+
+      <div class="sections">
+        <div class="form-group">
+          <label for="schadeB">Schade:</label><br>
+          <textarea class="inputC" formControlName="schadeB" id="schadeB" type="text" name="schadeB"></textarea>
+        </div>
+      </div>
+
+      <div class="sections">
+        <div class="form-group">
+          <label for="beschrijvingB">Opmerkingen:</label><br>
+          <textarea class="inputC" formControlName="beschrijvingB" id="beschrijvingB" type="text" name="beschrijvingB"></textarea>
+        </div>
+      </div>
+
+
+      <div class="spaceSectionsB"></div>
+
+
+
+    </section>
+
+
+  </form>
+</div>
+</body>
+
+

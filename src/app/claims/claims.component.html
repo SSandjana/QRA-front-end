@@ -1,0 +1,46 @@
+<div class="container pt-5 pb-5 mt-5">
+
+  <ng-container>
+    <div class="table-responsive" id="subscription-container">
+      <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+          <th scope="col"><b>ID-Nummer</b></th>
+          <th scope="col"><b>Gebruiker</b></th>
+          <th scope="col"><b>Gebruikersnaam</b></th>
+          <th scope="col"><b>Fomulier</b></th>
+          <th scope="col"><b>Status</b></th>
+          <th scope="col"><b>Bewerken</b></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let claim of claims | paginate: {itemsPerPage:7 , currentPage:p};">
+          <td>{{claim?.idNumber}}</td>
+          <td>{{claim?.name}}</td>
+          <td>{{claim?.username}}</td>
+          <td>{{claim?.naam}}</td>
+          <td>
+            <img style="width: 25px; height: 25px" *ngIf="claim.afgehandeld === 'accepted'"
+                 src="assets/check.png">
+            <img style="width: 25px; height: 25px" *ngIf="claim.afgehandeld === 'denied'"
+                 src="assets/remove.png">
+            <img style="width: 25px; height: 25px" *ngIf="claim.afgehandeld === 'pending'"
+                 src="assets/pending.png">
+          </td>
+          <td>
+            <button (click)="test(claim)" style="border: none">
+              <img style="width: 30px; height: 30px;" src="assets/view.png">
+            </button>
+          </td>
+
+        </tr>
+        </tbody>
+        <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+      </table>
+    </div>
+  </ng-container>
+
+
+</div>
+
+

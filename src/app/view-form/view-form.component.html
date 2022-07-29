@@ -1,0 +1,30 @@
+<div style="margin-top: 100px; margin-bottom: 100px;">
+  <ngx-extended-pdf-viewer
+    [src]="'assets/FR00f0001-2022-07-28.pdf'"
+    [height]="'511px'"
+    [useBrowserLocale]="true"
+    [textLayer]="true"
+    [showHandToolButton]="true"
+    [showPresentationModeButton]="true"
+    [(page)]="page"
+    [(pageLabel)]="pageLabel"
+    [showDownloadButton]="false"
+  >
+  </ngx-extended-pdf-viewer>
+
+  <div class="me-auto mb-2 mb-lg-0 nav nav-pills"
+       style="position: relative; margin-left: 500px; margin-top: 7px;">
+    <button style="background: #0d6efd; color: #ffffff;"
+            class="btn btn-primary nav-link" (click)="update('accepted')">
+      Accepteren
+    </button>
+    <button style="background: #c0392b; color: #ffffff;"
+            class="btn btn-primary nav-link" (click)="update('denied')">
+      Afkeuren
+    </button>
+    <button class="btn btn-primary nav-link" (click)="navigateToHome()">
+      Later bewerken
+    </button>
+  </div>
+
+</div>

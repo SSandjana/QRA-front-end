@@ -10,6 +10,12 @@ import {AdminGuard} from "./guards/admin.guard";
 import {UserProfileComponent} from "./user-profile/user-profile.component";
 import {VoertuigComponent} from "./voertuig/voertuig.component";
 import {ClientGuard} from "./guards/client.guard";
+import {UserTableComponent} from "./user-table/user-table.component";
+import {VerzekeringsformulierComponent} from "./verzekeringsformulier/verzekeringsformulier.component";
+import {AanrijdingsformulierComponent} from "./aanrijdingsformulier/aanrijdingsformulier.component";
+import {TestingComponent} from "./testing/testing.component";
+import {ClaimsComponent} from "./claims/claims.component";
+import {ViewFormComponent} from "./view-form/view-form.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -32,6 +38,21 @@ const routes: Routes = [
         component: VoertuigComponent,
         canActivate: [AuthGuard, ClientGuard]
       },
+      {
+        path: 'aanrijdingsformulier',
+        component: AanrijdingsformulierComponent,
+        canActivate: [AuthGuard, ClientGuard]
+      },
+      {
+        path: 'view-form',
+        component: ViewFormComponent,
+        canActivate: [AuthGuard, AdminGuard]
+      },
+      {
+        path: 'claims',
+        component: ClaimsComponent,
+        canActivate: [AuthGuard, AdminGuard]
+      }
     ]
   },
   {path: '**', redirectTo: 'login', pathMatch: 'full'}
